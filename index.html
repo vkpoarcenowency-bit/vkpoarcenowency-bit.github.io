@@ -13,7 +13,17 @@
 html{scroll-behavior:smooth}
 body{font-family:'Cormorant Garamond',serif;color:var(--ink);background:var(--cream);overflow-x:hidden;font-size:1.15rem;line-height:1.8}
 body.locked{overflow:hidden}
-.script{font-family:'Pinyon Script','Great Vibes','Italianno','Snell Roundhand','Apple Chancery','Brush Script MT','Lucida Handwriting','Segoe Script';font-weight:400}
+.script,
+.title.script,
+h2.script{
+  /* the script face, declared identically here and on .script-name so a
+     heading can never fall through to a plain sans on any device */
+  font-family:'Italianno','Great Vibes','Alex Brush','Parisienne','Allura',
+               'Dancing Script','Segoe Script','Brush Script MT',
+               'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  font-weight:400;
+  font-style:normal;
+}
 .caps{font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.35em;font-size:.72rem}
 
 /* ============ FALLING PETALS ============ */
@@ -158,6 +168,14 @@ nav a:hover::after{left:0;right:0}
 section{padding:7rem 1rem;position:relative;text-align:center;box-sizing:border-box}
 .wrap{max-width:1050px;margin:auto;width:100%;box-sizing:border-box;padding:0 1rem}
 .title{
+  /* family stated HERE, on the element itself -- this is what stops a
+     heading falling through to a sans-serif on a device that lacks the
+     named faces. */
+  font-family:'Italianno','Great Vibes','Alex Brush','Parisienne','Allura',
+               'Dancing Script','Segoe Script','Brush Script MT',
+               'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+  font-weight:400 !important;
+  font-style:normal !important;
   /* one locked size on every device -- no vw, no clamp. */
   font-size:4.5rem;
   color:var(--deep);
@@ -165,7 +183,7 @@ section{padding:7rem 1rem;position:relative;text-align:center;box-sizing:border-
   max-width:100%;
   overflow-wrap:break-word;
   hyphens:none;
-  word-spacing:-.06em;      /* packs a long heading without shrinking it */
+  word-spacing:-.06em;
   letter-spacing:-.01em;
 }
 .ornament{display:block;margin:1rem auto 2.5rem;width:180px}
@@ -513,8 +531,9 @@ body.swiping section,body.swiping header.hero{opacity:.92}
 }
 
 /* ============ 18th TRADITIONS — TABS ============ */
-   NOTE: never write a literal <\/style> inside a CSS comment — the HTML
-   parser closes the style element there and the rest of the sheet is lost. */
+   (The stray tag that used to sit here has been removed -- it was
+   closing the style element early. Never write a literal closing style
+   tag inside a CSS comment; the parser ends the element there. */
 .tabs{
   display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;
   margin:2rem auto 0;width:680px;
@@ -580,7 +599,16 @@ body{font-size:1.15rem !important}
    heading reads as broken rather than as intentional.
    Scoped to .title only: the script name, body copy, captions, nav,
    tabs and swatches all keep their single locked sizes. */
-h1.title,.title{font-size:4.5rem !important;word-spacing:-.06em;letter-spacing:-.01em}
+h1.title,.title{
+  font-family:'Italianno','Great Vibes','Alex Brush','Parisienne','Allura',
+               'Dancing Script','Segoe Script','Brush Script MT',
+               'Cormorant Garamond',Georgia,'Times New Roman',serif !important;
+  font-weight:400 !important;
+  font-style:normal !important;
+  font-size:4.5rem !important;
+  word-spacing:-.06em;
+  letter-spacing:-.01em;
+}
 footer .script,footer .script-name,footer p.script-name{font-size:min(7rem, 58vw) !important}
 .hero h1.script-name{font-size:min(15rem, 60vw) !important;line-height:1.6 !important}
 .env-letter .script-name{font-size:min(4.6rem, 44vw) !important}
@@ -903,6 +931,7 @@ nav,
    packs tighter and hyphenates so it wraps inside its panel instead of
    running past the edge. */
 .garden-title{
+  font-family:inherit !important;
   font-size:4.5rem !important;
   line-height:1.05 !important;
   word-spacing:-.12em;
