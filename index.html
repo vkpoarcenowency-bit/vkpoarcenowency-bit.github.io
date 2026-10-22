@@ -29,9 +29,23 @@ body{
 body.locked{overflow:hidden}
 img{max-width:100%;display:block}
 
+/* ---------- the celebrant font ----------
+   Dantene is served from GitHub Pages. Declared first in the .script
+   stack so it wins on every device that can load it. font-display:block
+   holds the text invisible until the face arrives rather than flashing a
+   substitute, because a flash here changes the width of the name and the
+   whole hero jumps. */
+@font-face{
+  font-family:'Dantene';
+  src:url('https://vkpoarcenowency-bit.github.io/Dantene.otf') format('opentype');
+  font-weight:400;
+  font-style:normal;
+  font-display:block;
+}
+
 /* ---------- type roles: declared once ---------- */
 .script{
-  font-family:'Italianno','Great Vibes','Alex Brush','Segoe Script',
+  font-family:'Dantene','Italianno','Great Vibes','Alex Brush','Segoe Script',
               'Brush Script MT','Cormorant Garamond',Georgia,serif;
   font-weight:400; font-style:normal;
 }
@@ -105,7 +119,7 @@ section,.wrap,.panel,.hero-inner,.venue,.rsvp-card,.timeline,
   width:104px;height:104px;border-radius:50%;z-index:7;
   display:grid;place-items:center;
   background:radial-gradient(circle at 36% 32%,#c4707f,#7d3646 72%);
-  color:#fbe6e9;font-family:'Italianno','Great Vibes',cursive;
+  color:#fbe6e9;font-family:'Dantene','Italianno','Great Vibes',cursive;
   font-size:3rem;line-height:1;
   box-shadow:0 10px 26px rgba(90,30,45,.5), inset 0 0 0 4px rgba(255,255,255,.14);
   transition:opacity .45s ease,transform .5s cubic-bezier(.2,.7,.2,1);
